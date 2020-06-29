@@ -22,15 +22,12 @@ struct ContentView: View {
             Text("Prime Number Finder")
                 .font(.title)
             
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 TextField("Enter an integer", text: $textInput)
                     .padding(.leading)
                     .background(Color(.systemGray6))
                     .keyboardType(.numberPad)
-                
-                
-                    
-                    
+                    .font(.body)
                 
                 Button(action: {
                     DispatchQueue.global().async(qos: .background) {
@@ -39,16 +36,22 @@ struct ContentView: View {
                     }
                     
                 }) {
-                    Text("Find!")
-                }
+                    FindButton()
+                } // Find Button
+                
                 Spacer()
-            }
+            } // H Stack
             Text(textOutput)
                 .padding([.top, .leading])
             Spacer()
-        }
+            HStack {
+                Spacer()
+                Text("Test")
+            } // H Stack
+            .padding(.horizontal)
+            
+        } // V Stack
         .padding(.all)
-        
     }
 }
 
