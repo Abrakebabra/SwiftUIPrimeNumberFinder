@@ -9,8 +9,46 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var textInput: String = ""
+    @State var textOutput: String = ""
+    
+    let primeFinder = PrimeFinder()
+    
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack(alignment: .leading){
+            
+            Text("Prime Number Finder")
+                .font(.title)
+            
+            HStack(alignment: .top) {
+                TextField("Enter an integer", text: $textInput)
+                    .padding(.leading)
+                    .background(Color(.systemGray6))
+                    .keyboardType(.numberPad)
+                
+                
+                    
+                    
+                
+                Button(action: {
+                    DispatchQueue.global().async(qos: .background) {
+                        self.textOutput = "Thinking..."
+                        self.textOutput = self.primeFinder.userInput(input: self.textInput)
+                    }
+                    
+                }) {
+                    Text("Find!")
+                }
+                Spacer()
+            }
+            Text(textOutput)
+                .padding([.top, .leading])
+            Spacer()
+        }
+        .padding(.all)
+        
     }
 }
 

@@ -14,6 +14,7 @@
 		6444326824A85F16008207B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6444326724A85F16008207B9 /* Preview Assets.xcassets */; };
 		6444326B24A85F16008207B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6444326924A85F16008207B9 /* LaunchScreen.storyboard */; };
 		6444327624A85F16008207B9 /* PrimeNumberFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6444327524A85F16008207B9 /* PrimeNumberFinderTests.swift */; };
+		6444328224A8639F008207B9 /* PrimeFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6444328124A8639F008207B9 /* PrimeFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		6444327124A85F16008207B9 /* PrimeNumberFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrimeNumberFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6444327524A85F16008207B9 /* PrimeNumberFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeNumberFinderTests.swift; sourceTree = "<group>"; };
 		6444327724A85F16008207B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6444328124A8639F008207B9 /* PrimeFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeFinder.swift; sourceTree = "<group>"; };
+		645F2F2924A89F7300C5EAB7 /* PrimeNumberFinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrimeNumberFinder.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +82,12 @@
 		6444325D24A85F14008207B9 /* PrimeNumberFinder */ = {
 			isa = PBXGroup;
 			children = (
+				645F2F2924A89F7300C5EAB7 /* PrimeNumberFinder.entitlements */,
 				6444325E24A85F14008207B9 /* AppDelegate.swift */,
 				6444326024A85F14008207B9 /* SceneDelegate.swift */,
 				6444326224A85F14008207B9 /* ContentView.swift */,
+				6444328124A8639F008207B9 /* PrimeFinder.swift */,
+				64B5685924A9BBA30001AA6A /* Views */,
 				6444326424A85F16008207B9 /* Assets.xcassets */,
 				6444326924A85F16008207B9 /* LaunchScreen.storyboard */,
 				6444326C24A85F16008207B9 /* Info.plist */,
@@ -105,6 +111,13 @@
 				6444327724A85F16008207B9 /* Info.plist */,
 			);
 			path = PrimeNumberFinderTests;
+			sourceTree = "<group>";
+		};
+		64B5685924A9BBA30001AA6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6444325F24A85F14008207B9 /* AppDelegate.swift in Sources */,
+				6444328224A8639F008207B9 /* PrimeFinder.swift in Sources */,
 				6444326124A85F14008207B9 /* SceneDelegate.swift in Sources */,
 				6444326324A85F14008207B9 /* ContentView.swift in Sources */,
 			);
@@ -362,17 +376,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PrimeNumberFinder/PrimeNumberFinder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PrimeNumberFinder/Preview Content\"";
 				DEVELOPMENT_TEAM = UK6M8ZDXSG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PrimeNumberFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Keith-Lee.PrimeNumberFinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,17 +399,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PrimeNumberFinder/PrimeNumberFinder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PrimeNumberFinder/Preview Content\"";
 				DEVELOPMENT_TEAM = UK6M8ZDXSG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PrimeNumberFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Keith-Lee.PrimeNumberFinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
