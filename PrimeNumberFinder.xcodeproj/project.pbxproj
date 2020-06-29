@@ -15,6 +15,7 @@
 		6444326B24A85F16008207B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6444326924A85F16008207B9 /* LaunchScreen.storyboard */; };
 		6444327624A85F16008207B9 /* PrimeNumberFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6444327524A85F16008207B9 /* PrimeNumberFinderTests.swift */; };
 		6444328224A8639F008207B9 /* PrimeFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6444328124A8639F008207B9 /* PrimeFinder.swift */; };
+		6473EFAA24AA530A006C965D /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473EFA924AA530A006C965D /* UserDefaultData.swift */; };
 		64B5685B24A9BD970001AA6A /* FindButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5685A24A9BD970001AA6A /* FindButton.swift */; };
 		64B5685D24AA4D0D0001AA6A /* PreviousIntegers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5685C24AA4D0D0001AA6A /* PreviousIntegers.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		6444327724A85F16008207B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6444328124A8639F008207B9 /* PrimeFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeFinder.swift; sourceTree = "<group>"; };
 		645F2F2924A89F7300C5EAB7 /* PrimeNumberFinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrimeNumberFinder.entitlements; sourceTree = "<group>"; };
+		6473EFA924AA530A006C965D /* UserDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
 		64B5685A24A9BD970001AA6A /* FindButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindButton.swift; sourceTree = "<group>"; };
 		64B5685C24AA4D0D0001AA6A /* PreviousIntegers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousIntegers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				6444328124A8639F008207B9 /* PrimeFinder.swift */,
 				64B5685C24AA4D0D0001AA6A /* PreviousIntegers.swift */,
 				64B5685924A9BBA30001AA6A /* SupportingViews */,
+				6473EFA824AA52C3006C965D /* Data */,
 				6444326424A85F16008207B9 /* Assets.xcassets */,
 				6444326924A85F16008207B9 /* LaunchScreen.storyboard */,
 				6444326C24A85F16008207B9 /* Info.plist */,
@@ -116,6 +119,14 @@
 				6444327724A85F16008207B9 /* Info.plist */,
 			);
 			path = PrimeNumberFinderTests;
+			sourceTree = "<group>";
+		};
+		6473EFA824AA52C3006C965D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6473EFA924AA530A006C965D /* UserDefaultData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		64B5685924A9BBA30001AA6A /* SupportingViews */ = {
@@ -232,6 +243,7 @@
 				6444328224A8639F008207B9 /* PrimeFinder.swift in Sources */,
 				6444326124A85F14008207B9 /* SceneDelegate.swift in Sources */,
 				6444326324A85F14008207B9 /* ContentView.swift in Sources */,
+				6473EFAA24AA530A006C965D /* UserDefaultData.swift in Sources */,
 				64B5685B24A9BD970001AA6A /* FindButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
