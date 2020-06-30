@@ -11,6 +11,7 @@ import Foundation
 
 class PrimeFinder {
     
+    
     fileprivate var inputString = ""
     
     
@@ -113,6 +114,8 @@ class PrimeFinder {
             outputString = "Divisible by \(divisibleString)\n\n\nTested \(tested) times\n\(again)"
         }
             
+        
+        let result = PrevInt(integer: integer, prime: prime, timesTested: <#T##String#>)
         
         return outputString
     }
