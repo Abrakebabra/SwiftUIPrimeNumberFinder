@@ -31,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6444325B24A85F14008207B9 /* Prime Number Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prime Number Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6444325B24A85F14008207B9 /* Prime Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prime Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6444325E24A85F14008207B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6444326024A85F14008207B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6444326224A85F14008207B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		6444325C24A85F14008207B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6444325B24A85F14008207B9 /* Prime Number Finder.app */,
+				6444325B24A85F14008207B9 /* Prime Finder.app */,
 				6444327124A85F16008207B9 /* PrimeNumberFinderTests.xctest */,
 			);
 			name = Products;
@@ -154,7 +154,7 @@
 			);
 			name = PrimeNumberFinder;
 			productName = PrimeNumberFinder;
-			productReference = 6444325B24A85F14008207B9 /* Prime Number Finder.app */;
+			productReference = 6444325B24A85F14008207B9 /* Prime Finder.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6444327024A85F16008207B9 /* PrimeNumberFinderTests */ = {
@@ -402,13 +402,13 @@
 				DEVELOPMENT_TEAM = UK6M8ZDXSG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PrimeNumberFinder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Keith-Lee.PrimeNumberFinder";
-				PRODUCT_NAME = "Prime Number Finder";
+				PRODUCT_NAME = "Prime Finder";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -425,13 +425,13 @@
 				DEVELOPMENT_TEAM = UK6M8ZDXSG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PrimeNumberFinder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Keith-Lee.PrimeNumberFinder";
-				PRODUCT_NAME = "Prime Number Finder";
+				PRODUCT_NAME = "Prime Finder";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,7 +456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrimeNumberFinder.app/PrimeNumberFinder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prime Finder.app/Prime Finder";
 			};
 			name = Debug;
 		};
@@ -478,7 +478,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrimeNumberFinder.app/PrimeNumberFinder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prime Finder.app/Prime Finder";
 			};
 			name = Release;
 		};

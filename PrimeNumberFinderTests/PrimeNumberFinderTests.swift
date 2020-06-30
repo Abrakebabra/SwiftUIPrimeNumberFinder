@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import PrimeNumberFinder
 
 class PrimeNumberFinderTests: XCTestCase {
 

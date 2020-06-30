@@ -10,8 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var userData: UserData
-    
     @State var textInput: String = ""
     @State var textOutput: String = ""
     
@@ -19,41 +17,62 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading){
-            
-            Text("Prime Number Finder")
-                .font(.title)
-            
-            HStack(alignment: .center) {
-                TextField("Enter an integer", text: $textInput)
-                    .padding(.leading)
-                    .background(Color(.systemGray6))
-                    .keyboardType(.numberPad)
-                    .font(.body)
+        NavigationView {
+            VStack(alignment: .leading){
                 
-                Button(action: {
-                    DispatchQueue.global().async(qos: .background) {
-                        self.textOutput = "Thinking..."
-                        self.textOutput = self.primeFinder.userInput(input: self.textInput)
-                    }
+                HStack(alignment: .center) {
                     
-                }) {
-                    FindButton()
-                } // Find Button
+                    
+                    TextField("Enter an integer", text: $textInput)
+                        .padding(.leading)
+                        .background(Color(.systemGray6))
+                        .keyboardType(.numberPad)
+                        .font(.body)
+                    
+                        
+                        
+                    
+                    Button(action: {
+                        DispatchQueue.global().async(qos: .background) {
+                            
+                            self.textOutput = "Thinking..."
+                            self.textOutput = self.primeFinder.userInput(input: self.textInput)
+                            
+                        }
+                        UIApplication.shared.endEditing()
+                    }) {
+                        FindButton()
+                    } // Find Button
+                    
+                    Spacer()
+                }
+                    .padding(.top)// H Stack
+                Text(textOutput)
+                    .padding([.top, .leading])
+                Spacer()
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: PreviousIntegers()) {
+                        Text("Previous Integers")
+                    }
+                } // H Stack
+                .padding(.all)
                 
-                Spacer()
-            } // H Stack
-            Text(textOutput)
-                .padding([.top, .leading])
-            Spacer()
-            HStack {
-                Spacer()
-                Text("Test")
-            } // H Stack
+            } // V Stack
             .padding(.horizontal)
+                .navigationBarTitle("Prime Number Finder", displayMode: .large)
             
-        } // V Stack
-        .padding(.all)
+        }
+        
+    }
+}
+
+
+
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

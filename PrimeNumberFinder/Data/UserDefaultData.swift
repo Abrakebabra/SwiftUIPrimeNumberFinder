@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct PrevInt {
+struct PrevInt: Codable {
     let integer: String
     let prime: Bool
+    let divisibleBy: String
     let timesTested: String
 }
+
 
 
 enum UserDefaultKeys: String {
@@ -20,59 +22,105 @@ enum UserDefaultKeys: String {
 }
 
 
-extension UserDefaults {
+
+class UserData {
+    static let prevIntKey = UserDefaultKeys.PreviousIntegers.rawValue
+    static let encoder = JSONEncoder()
+    static let decoder = JSONDecoder()
     
-    func updatePrevIntArray(newElement: PrevInt) {
-        
-        let prevIntKey = UserDefaultKeys.PreviousIntegers.rawValue
-        if var prevIntArray: [PrevInt] = UserDefaults.standard.array(forKey: prevIntKey) as? [PrevInt] {
-            
-            prevIntArray.append(newElement)
-            
-            if prevIntArray.count > 50 {
-                prevIntArray.remove(at: 0)
-            }
-            
-            UserDefaults.standard.set(prevIntArray, forKey: prevIntKey)
-            
-        } else {
-            UserDefaults.standard.set([newElement], forKey: prevIntKey)
-        }
+    
+    
+    fileprivate static func saveNewData(_ prevIntArray: [PrevInt]) throws {
+        let newData = try UserData.encoder.encode(prevIntArray)
+        UserDefaults.standard.set(newData, forKey: UserData.prevIntKey)
     }
     
     
-    func getPrevIntArrayString() -> String {
-        let prevIntKey = UserDefaultKeys.PreviousIntegers.rawValue
+    
+    static func updatePrevIntArray(newElement: PrevInt) {
         
-        if let prevIntArray: [PrevInt] = UserDefaults.standard.array(forKey: prevIntKey) as? [PrevInt] {
+        if let savedData = UserDefaults.standard.data(forKey: UserData.prevIntKey) {
+            // read then add
+            // if fails to read? - deal with it later
             
-            var prevIntStringDescriptions = ""
-            var newLine = ""
-            
-            for i in prevIntArray {
-                let int = i.integer.padding(toLength: 27, withPad: " ", startingAt: 0)
-                var prime = ""
-                let tested = i.timesTested
+            do {
+                // get the existing data
+                var prevIntArray: [PrevInt] = try decoder.decode([PrevInt].self, from: savedData)
                 
-                if i.prime {
-                    prime = "(Prime)"
+                // add the new element
+                prevIntArray.append(newElement)
+                
+                // if more than 50
+                if prevIntArray.count > 10 {
+                    prevIntArray.remove(at: 0)
                 }
                 
-                prevIntStringDescriptions.append("\(newLine)\(int)\(prime)\nTested: \(tested) times")
+                try saveNewData(prevIntArray)
                 
-                newLine = "\n"
-                
-            } // for loop
-            
-            return prevIntStringDescriptions
+            }
+            catch let error {
+                print(error)
+            }
             
         } else {
-            return "No previous primes entered.  Start looking!"
+            
+            //no read just add
+            
+            let prevIntArray: [PrevInt] = [newElement]
+            
+            do {
+                try saveNewData(prevIntArray)
+                
+            }
+            catch let error {
+                print(error)
+            }
+            
+        } // if let savedData
+    }
+    
+    
+    static func getPrevIntArrayString() -> String {
+        
+        
+        var prevIntString = "No previous primes entered.  Start looking!"
+        
+        if let savedData = UserDefaults.standard.data(forKey: UserData.prevIntKey) {
+            do {
+                let prevIntArray = try UserData.decoder.decode([PrevInt].self, from: savedData)
+                
+                prevIntString = ""
+                var newLine = ""
+                
+                for i in prevIntArray {
+                    let int = i.integer.padding(toLength: 27, withPad: " ", startingAt: 0)
+                    var prime = ""
+                    var divisible = ""
+                    let tested = "Tested \(i.timesTested) times"
+                    
+                    
+                    if i.prime {
+                        prime = "(Prime)"
+                    } else {
+                        divisible = "(Divisible by \(i.divisibleBy))"
+                    }
+                    
+                    prevIntString.append("\(newLine)\(int)\n\(prime)\(divisible)\n\(tested)")
+                    
+                    newLine = "\n\n"
+                    
+                } // for loop
+                
+                
+            }
+            catch let error {
+                print(error)
+            }
         }
         
+        
+        return prevIntString
     } // func updateStringDescription
-    
-
     
 } // class UserData
 

@@ -12,9 +12,6 @@ import Foundation
 class PrimeFinder {
     
     
-    fileprivate var inputString = ""
-    
-    
     fileprivate func noInputCheck(input : String) -> String {
         // If nothing has been input, give pre-selected integer
         if input.isEmpty {
@@ -84,9 +81,9 @@ class PrimeFinder {
         
         var prime : Bool = true
         var i : Int = 3 // starting loop
-        var divisibleBy : Int = 1
+        var divisibleBy: Int = 1
         let integerSqrt = Int(sqrt(Double(integer)))
-        var outputString : String = "Awaiting results..."
+        var outputString: String = "Awaiting results..."
         
 
         
@@ -109,13 +106,15 @@ class PrimeFinder {
         let again = "Hit me baby one more prime!"
         
         if prime == true {
-            outputString = "\(self.inputString)\nis a prime number!\n\n\nTested \(tested) times\n\(again)"
+            outputString = "\(commaSeparate(input: integer))\nis a prime number!\n\n\nTested \(tested) times\n\(again)"
         } else {
             outputString = "Divisible by \(divisibleString)\n\n\nTested \(tested) times\n\(again)"
         }
-            
         
-        let result = PrevInt(integer: integer, prime: prime, timesTested: <#T##String#>)
+        
+        
+        let resultToStore = PrevInt(integer: commaSeparate(input: integer), prime: prime, divisibleBy: divisibleString, timesTested: tested)
+        UserData.updatePrevIntArray(newElement: resultToStore)
         
         return outputString
     }
@@ -125,16 +124,15 @@ class PrimeFinder {
     
     func userInput(input: String) -> String {
         
-        self.inputString = noInputCheck(input: input)
+        let inputString = noInputCheck(input: input)
         let noCommaString = removeCommas(input: inputString)
         let integer = stringToInteger(input: noCommaString)
         let validInteger = integerCheck(input: integer)
         
         if validInteger == 0 {
-            return "\(self.inputString) is not a valid integer."
+            return "\(inputString) is not a valid integer."
         }
         
-        self.inputString = commaSeparate(input: validInteger)
         let result = primeNumFinder(integer: validInteger)
         
         
