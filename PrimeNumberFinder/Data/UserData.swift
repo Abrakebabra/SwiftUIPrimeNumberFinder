@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct PrevInt {
     let integer: String
     let prime: Bool
@@ -16,11 +15,11 @@ struct PrevInt {
 }
 
 
-class UserData {
+class UserData: ObservableObject {
     
     let userDefaults = UserDefaults.standard
     let prevIntKey = "PreviousIntegers"
-    var prevInt: [PrevInt]
+    @Published var prevInt: [PrevInt]
     
     init() {
         

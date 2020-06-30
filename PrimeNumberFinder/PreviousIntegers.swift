@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct PreviousIntegers: View {
+    
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
         VStack(alignment: .leading) {
             

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var userData: UserData
+    
     @State var textInput: String = ""
     @State var textOutput: String = ""
     
