@@ -87,7 +87,10 @@ class UserData {
         
         if let savedData = UserDefaults.standard.data(forKey: UserData.prevIntKey) {
             do {
-                let prevIntArray = try UserData.decoder.decode([PrevInt].self, from: savedData)
+                var prevIntArray = try UserData.decoder.decode([PrevInt].self, from: savedData)
+                
+                // newest at the top
+                prevIntArray.reverse()
                 
                 prevIntString = ""
                 var newLine = ""
@@ -100,9 +103,9 @@ class UserData {
                     
                     
                     if i.prime {
-                        prime = "(Prime)"
+                        prime = "Prime"
                     } else {
-                        divisible = "(Divisible by \(i.divisibleBy))"
+                        divisible = "Divisible by \(i.divisibleBy)"
                     }
                     
                     prevIntString.append("\(newLine)\(int)\n\(prime)\(divisible)\n\(tested)")

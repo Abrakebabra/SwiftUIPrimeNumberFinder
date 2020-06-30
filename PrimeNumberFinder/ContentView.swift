@@ -22,15 +22,11 @@ struct ContentView: View {
                 
                 HStack(alignment: .center) {
                     
-                    
                     TextField("Enter an integer", text: $textInput)
                         .padding(.leading)
-                        .background(Color(.systemGray6))
                         .keyboardType(.numberPad)
                         .font(.body)
-                    
-                        
-                        
+                        .background(Color(.systemGray6))
                     
                     Button(action: {
                         DispatchQueue.global().async(qos: .background) {
@@ -45,7 +41,8 @@ struct ContentView: View {
                     } // Find Button
                     
                     Spacer()
-                }
+                } // HStack
+                    
                     .padding(.top)// H Stack
                 Text(textOutput)
                     .padding([.top, .leading])
